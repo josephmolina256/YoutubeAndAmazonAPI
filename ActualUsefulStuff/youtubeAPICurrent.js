@@ -2,12 +2,11 @@ async function youtubeFetch(vidList) {
   for(let i = 0; i < vidList.length; i++){
     let searchLink = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=3&q=${vidList[i]}&key=AIzaSyBSolnHh0xn29PRa6PspyidJBGJb2bDTRk`
   
-    // const response = await fetch("http://example.com/movies.json");
-    // const movies = await response.json();
+    
     let response = await fetch(searchLink)
-    let temp = await response.json() 
+    let temp = await response.json() //needs temp to convert to json
     let results = temp['items']
-    // console.log(results[1])
+    
 
     
   
@@ -20,14 +19,15 @@ async function youtubeFetch(vidList) {
   
       outList.push({ 'title' : title, 'url' : url, 'thumbnail' : thumbnail })
     }
-  
-    await console.log(outList)
+    
+    //Need to make console.log() to return maybe?
+    await console.log(outList) 
   
   }
 
 }
 
-
+//needs actual vidlist from chatGPT
 vidList = ['How%20to%20Design%20a%20Speed%20Gearbox']
-
+//function call probably needs exporting
 youtubeFetch(vidList)
